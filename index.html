@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CCL — Cricket County League</title>
+<style>
+:root{--bg:#031a16;--panel:#062721;--panel2:#07342a;--line:#176354;--green:#8cff3d;--white:#f5fff8;--muted:#9bb8ae;--red:#ff3344;--gold:#f2bd34}
+*{box-sizing:border-box} body{margin:0;background:#000;font-family:Arial,Helvetica,sans-serif;color:var(--white)}
+.app{width:min(430px,100vw);min-height:100vh;margin:auto;background:radial-gradient(circle at 50% 0,#0a4735 0,#031a16 38%,#02120f 100%);position:relative;padding-bottom:78px}
+header{padding:18px 18px 8px;display:flex;align-items:center;justify-content:space-between}
+.logo{height:54px;width:auto;object-fit:contain}.icon{font-size:22px}
+main{padding:8px 14px 20px}.hero{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#0a3e31,#041b17);padding:16px;margin-bottom:14px}
+.hero h1{font-size:25px;margin:0 0 5px}.hero p{color:var(--muted);margin:0 0 14px}
+.badge{display:inline-block;background:var(--red);padding:6px 9px;border-radius:9px;font-size:12px;font-weight:800}
+.card{background:linear-gradient(145deg,#07372c,#04231d);border:1px solid #135a4b;border-radius:15px;padding:14px;margin:10px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.teams{font-size:17px;font-weight:800}.score{font-size:25px;font-weight:900}.vs{color:var(--green);font-weight:800}.muted{color:var(--muted);font-size:12px}.location{color:#bde9d8;font-size:12px;margin-top:8px}
+.btn{display:block;width:100%;border:0;border-radius:11px;padding:12px;background:var(--green);color:#062012;font-weight:900;margin-top:12px}
+.section-title{font-size:18px;font-weight:900;margin:20px 2px 8px}.date{background:#18352d;border-radius:10px;padding:8px;text-align:center;color:var(--green);font-weight:900}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100vw);height:72px;background:#031611ee;border-top:1px solid #145345;display:flex;justify-content:space-around;align-items:center;backdrop-filter:blur(12px);z-index:5}
+.nav button{background:none;border:0;color:#9bb8ae;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:5px}.nav button.active{color:var(--green)}.nav span{font-size:20px}
+.screen{display:none}.screen.active{display:block}
+.tabs{display:flex;gap:8px;margin:10px 0}.tab{flex:1;border:1px solid var(--line);background:#06251e;color:var(--muted);padding:10px;border-radius:10px}.tab.active{background:var(--green);color:#062012;font-weight:900}
+.video{height:170px;border-radius:14px;background:linear-gradient(135deg,#145a42,#071714);display:flex;align-items:center;justify-content:center;font-size:48px;border:1px solid var(--line)}
+.map{height:230px;border-radius:16px;border:1px solid var(--line);background:radial-gradient(circle at 20% 30%,#195c49 0 4px,transparent 5px),radial-gradient(circle at 70% 60%,#8cff3d 0 4px,transparent 5px),linear-gradient(135deg,#0b3028,#123f36);position:relative}
+.map:after{content:"HYDERABAD";position:absolute;left:35%;top:45%;font-size:18px;font-weight:900;color:#bcebd7}
+.profile{text-align:center;padding-top:12px}.avatar{width:90px;height:90px;border-radius:50%;margin:auto;background:#1b4c3e;display:grid;place-items:center;font-size:38px;border:2px solid var(--green)}
+</style>
+</head>
+<body>
+<div class="app">
+<header><img class="logo" src="ccl-logo.png" alt="CCL Cricket County League"><div class="icon">🔔</div></header>
+
+<main>
+<section id="home" class="screen active">
+<div class="hero"><span class="badge">● LIVE NOW</span><h1>Cricket Never Stops</h1><p>Follow matches, locations, scores and cricket videos.</p>
+<div class="card"><div class="row"><div><div class="teams">Rising Stars</div><div class="muted">8.0 overs</div></div><div class="score">72/3</div><div class="vs">VS</div><div class="score">118/10</div><div><div class="teams">Thunder XI</div><div class="muted">20.0 overs</div></div></div><div class="location">📍 Hyderabad Cricket Ground</div><button class="btn" onclick="go('matches')">▶ Watch Live</button></div></div>
+<div class="section-title">Upcoming Matches</div>
+<div class="card"><div class="row"><div class="date">24<br>SEP</div><div><b>Royal Kings vs Green Warriors</b><div class="muted">09:00 AM • Gachibowli Ground</div></div><b>›</b></div></div>
+<div class="section-title">Latest Videos & Reels</div><div class="video">▶</div>
+</section>
+
+<section id="matches" class="screen"><h2>Matches</h2><div class="tabs"><button class="tab active">Live</button><button class="tab">Upcoming</button><button class="tab">Completed</button></div>
+<div class="card"><span class="badge">LIVE</span><div class="row" style="margin-top:10px"><b>Rising Stars</b><b>72/3</b><span class="vs">VS</span><b>Thunder XI</b><b>118/10</b></div><div class="location">📍 Hyderabad Ground</div></div>
+<div class="section-title">Upcoming Matches</div>
+<div class="card">24 Sep • Royal Kings vs Green Warriors<br><span class="muted">09:00 AM • Gachibowli Ground</span></div>
+<div class="card">25 Sep • Warriors XI vs Star Sports<br><span class="muted">10:00 AM • LB Stadium</span></div></section>
+
+<section id="videos" class="screen"><h2>Videos & Reels</h2><div class="tabs"><button class="tab active">Match Videos</button><button class="tab">Reels</button></div>
+<div class="video">▶</div><div class="card"><b>Rising Stars vs Thunder XI — Full Match Highlights</b><div class="muted">12.4K views • 2 days ago</div></div>
+<div class="video">▶</div><div class="card"><b>Best Sixes of the Week</b><div class="muted">8.7K views • 3 days ago</div></div></section>
+
+<section id="locations" class="screen"><h2>Match Locations</h2><div class="card">🔎 Search ground or area...</div><div class="map"></div>
+<div class="section-title">Today's Match Locations</div>
+<div class="card">📍 <b>Hyderabad Cricket Ground</b><div class="muted">Rising Stars vs Thunder XI • Live Now</div></div>
+<div class="card">📍 <b>Gachibowli Ground</b><div class="muted">Royal Kings vs Green Warriors • 04:00 PM</div></div></section>
+
+<section id="profile" class="screen"><div class="profile"><div class="avatar">🏏</div><h2>CCL Fan</h2><div class="muted">@ccl_fan</div></div>
+<div class="card">❤️ Favourite Teams <span style="float:right">›</span></div><div class="card">🏆 Favourite Matches <span style="float:right">›</span></div><div class="card">🎥 My Videos <span style="float:right">›</span></div><div class="card">⚙️ Settings <span style="float:right">›</span></div></section>
+</main>
+
+<nav class="nav">
+<button class="active" onclick="go('home')"><span>⌂</span>Home</button>
+<button onclick="go('matches')"><span>🏏</span>Matches</button>
+<button onclick="go('videos')"><span>▶</span>Videos</button>
+<button onclick="go('locations')"><span>📍</span>Locations</button>
+<button onclick="go('profile')"><span>♙</span>Profile</button>
+</nav>
+</div>
+<script>
+function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav button')[['home','matches','videos','locations','profile'].indexOf(id)].classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body></html>
